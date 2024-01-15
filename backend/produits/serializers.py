@@ -8,5 +8,5 @@ class ProduitSerializer(ModelSerializer):
         
 class CommentaireSerializer(ModelSerializer):
     class Meta:
-        model = Commentaire()
-        fields = '__all__'        
+        model = Commentaire
+        fields = ('id', 'message')        

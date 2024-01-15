@@ -1,5 +1,7 @@
 from rest_framework.response import Response
-from .models import Produit, Commentaire
+from rest_framework import status
+from .models import Produit
+from produits.models import Commentaire
 from .serializers import ProduitSerializer, CommentaireSerializer
 
 def getListProduit(request):
@@ -12,16 +14,16 @@ def getDetailProduit(request, pk):
     serializer = ProduitSerializer(produit, many=False)
     return Response(serializer.data)
 
-# def creerCommentaire(request):
-#     data = request.data
-#     produit = Commentaire.objects.create(
-#         nom_prod=data['nom_prod'], 
-#         titre_prod=data['titre_prod'], 
-#         description_prod=data['description_prod'], 
-#         prix_prod=data['prix_prod']
-#         )
-#     serializer = ProduitSerializer(produit, many=False)
-#     return Response(serializer.data)
+def creerCommentaire(request):
+    if request.method == 'POST':
+        data = Commentaire.objects.all()
+        serializer = CommentaireSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_201_CREATED)
+      
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+  
 
 def updateProduit(request, pk):
     data = request.data

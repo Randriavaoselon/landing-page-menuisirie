@@ -12,8 +12,8 @@ class Produit(models.Model):
         return self.nom_prod
     
 class Commentaire(models.Model):
-    message = models.TextField(null=True)
+    message = models.TextField(null=False, blank=False)
     
     def __str__(self):
-        return self.message
+        return str(self.message)
         

@@ -11,7 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.views import View
 import json
-from .utils import getListProduit, getDetailProduit,updateProduit, deleteProduit
+from .utils import getListProduit, getDetailProduit,updateProduit, deleteProduit, creerCommentaire
 
 # Create your views here.
 
@@ -57,11 +57,8 @@ def getProduits(request):
     if request.method == 'GET':
         return getListProduit(request)
     
-    # if request.method == 'GET':
-    #     return searchProduit(request)
-    
-    # if request.method == 'POST':
-    #     return creerProduit(request)
+    if request.method == 'POST':
+        return creerCommentaire(request)
     
 @api_view(['GET', 'PUT', 'DELETE'])
 def getProduit(request, pk):
