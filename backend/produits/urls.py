@@ -7,6 +7,7 @@ urlpatterns = [
     path('produits/', views.getProduits, name="produits"),
     path('produits/<str:pk>/', views.getProduit, name="produit"),
     path('send_comment/create/', ItemCreateView.as_view(), name='item-create'),
-
+    
+    path('recherche/', views.searchProduit, name="recherche"),
 ]
 

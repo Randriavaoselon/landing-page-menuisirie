@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from django.db.models import Q
+from django.http import JsonResponse
 from rest_framework.response import Response
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
@@ -72,12 +73,6 @@ def getProduit(request, pk):
         return deleteProduit(request, pk)
     
 
-# def recherche(request):
-#     resultats = Produit.objects.filter(nom_prod__icontains=request.GET.get('q', ''))
-#     data = [{'nom_prod': obj.nom_prod, 'titre_prod': obj.titre_prod } for obj in resultats]    
-#     return JsonResponse(data, safe=False)
-
-
 @method_decorator(csrf_exempt, name='dispatch')
 class ItemCreateView(View):
     def post(self, request, *args, **kwargs):
@@ -89,3 +84,10 @@ class ItemCreateView(View):
             return JsonResponse({'id': new_comment.id, 'message': comment.name})
         else:
             return JsonResponse({'error': 'Name is required'}, status=400)
+        
+        
+def searchProduit(request):
+    query = request.GET.get('q', '')
+    produits = Produit.objects.filter(Q(nom_prod__icontains=query) | Q(titre_prod__icontains=query))
+    data = [{'nom_prod': produit.nom_prod, 'titre_prod': produit.titre_prod} for produit in produits]
+    return JsonResponse(data, safe=False)        

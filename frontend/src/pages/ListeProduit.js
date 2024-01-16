@@ -27,9 +27,9 @@ const ListeProduit = () => {
   return (
     <div className="back-color">
       <NavbarListeImage />
-      <div className='body-page-Liste-produit'>
-        <div className="image-container">
-          {produitListe.map((image, index) => (
+       <div className='body-page-Liste-produit'>
+       <div className="image-container">
+           {produitListe.map((image, index) => (
             <div key={index.id} className="image-background">
               <Link to={`/liste_produit/${image.id}`} className="link-textImage">
                 <img src={image.image} alt="" />
