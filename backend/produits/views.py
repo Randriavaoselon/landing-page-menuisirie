@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
+from rest_framework import generics
 from django.http import JsonResponse
 from rest_framework.response import Response
 from django.http import JsonResponse
@@ -12,7 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.views import View
 import json
-from .utils import getListProduit, getDetailProduit,updateProduit, deleteProduit, creerCommentaire
+from .utils import getDetailProduit,updateProduit, deleteProduit, creerCommentaire
 
 # Create your views here.
 
@@ -53,11 +54,7 @@ def getRoutes(request):
     return Response(routes)
 
 @api_view(['GET', 'POST'])
-def getProduits(request):
-    
-    if request.method == 'GET':
-        return getListProduit(request)
-    
+def getProduits(request): 
     if request.method == 'POST':
         return creerCommentaire(request)
     
@@ -84,10 +81,18 @@ class ItemCreateView(View):
             return JsonResponse({'id': new_comment.id, 'message': comment.name})
         else:
             return JsonResponse({'error': 'Name is required'}, status=400)
-        
-        
-def searchProduit(request):
-    query = request.GET.get('q', '')
-    produits = Produit.objects.filter(Q(nom_prod__icontains=query) | Q(titre_prod__icontains=query))
-    data = [{'nom_prod': produit.nom_prod, 'titre_prod': produit.titre_prod} for produit in produits]
-    return JsonResponse(data, safe=False)        
+          
+# def searchProduit(request):
+#     query = request.GET.get('q', '')
+#     produits = Produit.objects.filter(Q(nom_prod__icontains=query) | Q(titre_prod__icontains=query))
+#     data = [{'nom_prod': produit.nom_prod, 'titre_prod': produit.titre_prod} for produit in produits]
+#     return JsonResponse(data, safe=False)
+
+
+class ProduitList(generics.ListAPIView):
+    queryset = Produit.objects.all()
+    serializer_class = ProduitSerializer
+
+    def get_queryset(self):
+        query = self.request.query_params.get('q', '')
+        return Produit.objects.filter(Q(nom_prod__icontains=query) | Q(titre_prod__icontains=query))        

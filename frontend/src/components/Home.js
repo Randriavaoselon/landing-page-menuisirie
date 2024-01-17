@@ -26,7 +26,7 @@ const Home = () => {
             Découvrez l'art de l'excellence avec nos produits de menuiserie qui allient savoir-faire artisanal,
             design innovant et qualité inégalée.
           </p>
-          <Link to="/liste_produit" className="secondary-button">
+          <Link to="/search_produit" className="secondary-button">
             Voir tous les produits <FiArrowRight />{" "}
           </Link>
         </div>

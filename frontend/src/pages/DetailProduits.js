@@ -31,7 +31,7 @@ const DetailProduits = () => {
                     <p>{book.nom_prod} en {book.prix_prod} €</p>
                     <img src={book.image} alt="" className="imageDetail" />
                     <p>{book.description_prod}</p>
-                    <Link to="/liste_produit" className="link-textImage">
+                    <Link to="/search_produit" className="link-textImage">
                         <h2 className="color-style" id="color-style">Revenir</h2>
                     </Link>
                 </div>

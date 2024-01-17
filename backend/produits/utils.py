@@ -7,11 +7,10 @@ from .models import Produit
 from produits.models import Commentaire
 from .serializers import ProduitSerializer, CommentaireSerializer
 
-def getListProduit(request):
-    produit = Produit.objects.all().order_by('nom_prod')
-    serializer = ProduitSerializer(produit, many=True)
-    return Response(serializer.data)
-
+# def getListProduit(request):
+#     produit = Produit.objects.all().order_by('nom_prod')
+#     serializer = ProduitSerializer(produit, many=True)
+#     return Response(serializer.data)
 
 def getDetailProduit(request, pk):
     produit = Produit.objects.get(id=pk)
