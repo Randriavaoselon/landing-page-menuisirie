@@ -47,7 +47,7 @@ const Navbar = () => {
         <a href="#temoin">Témoingnage</a>
         <a href="#contact">Contacte</a>
       
-        <button className="primary-button">Qui nous sommes ?</button>
+        {/* <button className="primary-button">Qui nous sommes ?</button> */}
       </div>
       <div className="navbar-menu-container">
         <HiOutlineBars3 onClick={() => setOpenMenu(true)} />

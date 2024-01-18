@@ -1,6 +1,8 @@
 import React from 'react'
 import AboutBackgroundImage from "../Assets/fond2.gif";
 
+import { Link } from 'react-router-dom';
+
 const About = () => {
   return (
     <div className="about-section-container" id="about">
@@ -21,8 +23,9 @@ const About = () => {
           nos produits de menuiserie dépassent les attentes.
         </p>
         <div className="about-buttons-container">
-          <button className="secondary-button">Savoir plus</button>
-
+          <Link to="/about-plus" className="link-about">
+            <button className="secondary-button">Savoir plus</button>
+          </Link>
         </div>
       </div>
     </div>

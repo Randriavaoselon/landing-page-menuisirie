@@ -125,6 +125,10 @@ nav {
   margin: 1.5rem 0rem;
 }
 
+.link-about{
+  text-decoration: none;
+}
+
 .secondary-button {
   padding: 1rem 2.5rem;
   background-color: #e48f0f;
@@ -507,10 +511,11 @@ nav {
     padding: 0.8rem 2rem;
     cursor: pointer;
   }
-
+/* ----------------------------------------- */
   .about-section-container {
     margin-top: 5rem !important;
   }
+
 
   .about-buttons-container {
     justify-content: center;
