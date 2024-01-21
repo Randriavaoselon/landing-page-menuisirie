@@ -18,14 +18,20 @@ def getDetailProduit(request, pk):
     return Response(serializer.data)
 
 def creerCommentaire(request):
-    if request.method == 'POST':
-        data = Commentaire.objects.all()
-        serializer = CommentaireSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status=status.HTTP_201_CREATED)
+    data = request.data
+    comment = Commentaire.objects.create(
+        message=data['message']
+    )
+    serializer = CommentaireSerializer(comment, many=False)
+    return Response(serializer.data)
+    # if request.method == 'POST':
+    #     data = Commentaire.objects.all()
+    #     serializer = CommentaireSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(status=status.HTTP_201_CREATED)
       
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
   
 
 def updateProduit(request, pk):
