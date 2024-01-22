@@ -17,7 +17,6 @@ const Home = () => {
         <Navbar />
       </div>
       <div className="home-banner-container">
-
         <div className="home-text-section">
           <h1 className="primary-heading">
             Notre Menuiserie Redéfinit le Style et la Durabilité pour Votre Intérieur et Extérieur.

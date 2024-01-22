@@ -14,25 +14,12 @@ import InfoIcon from "@mui/icons-material/Info";
 import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 
-
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const menuOptions = [
     {
       text: "Accueil",
       icon: <HomeIcon />,
-    },
-    {
-      text: "A propos",
-      icon: <InfoIcon />,
-    },
-    {
-      text: "Témoingnage",
-      icon: <CommentRoundedIcon />,
-    },
-    {
-      text: "Contacte",
-      icon: <PhoneRoundedIcon />,
     },
   ];
 

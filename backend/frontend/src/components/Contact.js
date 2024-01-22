@@ -39,7 +39,7 @@ const Contact = () => {
       <h1 className="primary-heading">Ecrivez votre commentaire</h1>
       <form onSubmit={handleFormSubmit}>
         <div className="contact-form-container">
-          <input type="text" value={text} onChange={handleInputChange} className="text-comment" placeholder="Vous pouvez ecrire votre commentaire ici" />
+          <input type="text" value={text} onChange={handleInputChange} className="text-comment" placeholder="Ecrire votre commentaire..." />
           <button type="submit" className="secondary-button">Envoyer</button>
         </div>
       </form>

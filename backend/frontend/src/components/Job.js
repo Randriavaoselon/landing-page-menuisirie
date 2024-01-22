@@ -8,17 +8,17 @@ const Job = () => {
     {
       image: PickMeals,
       title: "Porte Fenêtre en bonne qualité",
-      text: "Lorem ipsum dolor sit amet consectetur.",
+      text: "Ouvrez la lumière sur le monde avec nos portes-fenêtres, l'élégance au service de la luminosité.",
     },
     {
       image: ChooseMeals,
       title: "Porte de service",
-      text: "Lorem ipsum dolor sit amet consectetur. ",
+      text: "Passez la porte du service en toute simplicité, où praticité et fiabilité se rencontrent.",
     },
     {
       image: DeliveryMeals,
       title: "Porte de service",
-      text: "Lorem ipsum dolor sit amet consectetur. ",
+      text: "Ouverture facile, accès sans souci : notre porte service, votre passage vers la facilité.",
     },
   ];
 
