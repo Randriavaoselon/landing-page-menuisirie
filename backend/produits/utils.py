@@ -7,6 +7,8 @@ from .models import Produit
 from produits.models import Commentaire
 from .serializers import ProduitSerializer, CommentaireSerializer
 
+from django.views.decorators.csrf import csrf_exempt
+
 # def getListProduit(request):
 #     produit = Produit.objects.all().order_by('nom_prod')
 #     serializer = ProduitSerializer(produit, many=True)
@@ -17,6 +19,7 @@ def getDetailProduit(request, pk):
     serializer = ProduitSerializer(produit, many=False) 
     return Response(serializer.data)
 
+@csrf_exempt
 def creerCommentaire(request):
     data = request.data
     comment = Commentaire.objects.create(

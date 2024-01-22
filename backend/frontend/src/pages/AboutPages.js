@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar';
+import NavbarDetail from '../components/NavbarDetail';
 import AboutBackgroundImage from "../Assets/fond2.gif";
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const AboutPages = () => {
   return (
     <div >
       <div className="back-color">
-        <Navbar />
+        <NavbarDetail/>
       </div>
       <div className="about-section-container plus-about">
         <div className="about-section-image-container">
